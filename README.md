@@ -8,5 +8,5 @@
 
 [Voice Driven Web Apps: Introduction to the Web Speech API, 2019/5/29](https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API)
 
-[Web Speech APIの実装　前編](https://app.codegrid.net/entry/2016-web-speech-api-1, 2016)
+[Web Speech APIの実装　前編](https://app.codegrid.net/entry/2016-web-speech-api-1 2016)
 
