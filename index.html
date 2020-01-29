@@ -16,14 +16,22 @@
         height: 50px;
         margin-bottom: 20px;
       }
+      #textarea1{
+        width: 80%;
+        height: 300px;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
-    <h3>Web Speech API　Demo</h3>
-    <button id="btn">音声認識開始</button>
-    <p><small>上のボタンを押して離した後、次のキーワードを話してください。</small></p>
-    <p><strong>【検索】【ビデオ】【ラジオ】【イベント】</strong></p>
-    <div id="content"></div>
+    <h1>Web Speech API　Demo</h1>
+    <br />
+    <p>ボタンを押した後、英語を話してください。</p>
+    <p>認識された英語がテキストエリアに追加されます。</p>
+    <p>認識するには、毎度、ボタンを押してください。</p>
+    <br />
+    <button id="btn">音声認識</button>
+    <textarea id="textarea1"></textarea>
    
     <script src="app.js"></script>
   </body>

@@ -1,11 +1,12 @@
 var btn = document.getElementById('btn');
-var content = document.getElementById('content');
+//var content = document.getElementById('content');
+var textarea = document.getElementById('textarea1');
 
 //音声認識APIの使用
 var speech = new webkitSpeechRecognition();
 
 //言語を日本語に設定
-speech.lang = "ja";
+speech.lang = "en";
 
 //ボタンクリックで認識開始
 btn.addEventListener('click', function() {
@@ -16,27 +17,9 @@ btn.addEventListener('click', function() {
 speech.addEventListener('result', function(e) {
   console.log(e);
   var text = e.results[0][0].transcript;
-  
-  switch(text) {
-    case "検索":
-      getSearch();
-      break;
-    case "ビデオ":
-      getVideo();
-      break;
-    case "ラジオ":
-      getRadio();
-      break;
-    case "イベント":
-      getEventData();
-      break;
-    default:
-      getTextContents(text);
-  }
-  
+  textarea.value += text + '\n';
+  console.log(text);
 });
-
-
 
 
 //検索
