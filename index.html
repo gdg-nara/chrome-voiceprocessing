@@ -8,32 +8,59 @@
         padding: 15px 5px;
         text-align: center;
       }
-      li {
-        list-style-type: none;
-      }
-      #btn {
+      button {
+        font-size: 20px;
         width: 150px;
         height: 50px;
         margin-bottom: 20px;
       }
-      #textarea1{
-        width: 80%;
-        height: 300px;
-        font-size: 20px;
+      #result-div{
+        border: 1px solid black;
+        height: 400px;
+        text-align: left;
+        padding: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Web Speech API　Demo</h1>
-    <br />
-    <p>ボタンを押した後、英語を話してください。</p>
-    <p>認識された英語がテキストエリアに追加されます。</p>
-    <p>認識するには、毎度、ボタンを押してください。</p>
-    <br />
-    <button id="btn">音声認識</button>
-    <br />
-    <textarea id="textarea1"></textarea>
-   
-    <script src="app.js"></script>
+      <h1>Webspeech API Demo</h1>
+      <button id="start-btn">REC Start</button>
+      <button id="stop-btn">Stop</button>
+      <div id="result-div"></div>
+      
+      <script>
+        const startBtn = document.querySelector('#start-btn');
+        const stopBtn = document.querySelector('#stop-btn');
+        const resultDiv = document.querySelector('#result-div');
+      
+        SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
+        let recognition = new SpeechRecognition();
+      
+        recognition.lang = 'en';
+        recognition.interimResults = true;
+        recognition.continuous = true;
+      
+        let finalTranscript = '';
+      
+        recognition.onresult = (event) => {
+          let interimTranscript = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            let transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              finalTranscript += transcript;
+            } else {
+              interimTranscript = transcript;
+            }
+          }
+          resultDiv.innerHTML = finalTranscript + '<i style="color:#ddd;">' + interimTranscript + '</i>';
+        }
+      
+        startBtn.onclick = () => {
+          recognition.start();
+        }
+        stopBtn.onclick = () => {
+          recognition.stop();
+        }
+      </script>
   </body>
 </html>
