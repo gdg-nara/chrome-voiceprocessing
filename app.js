@@ -1,38 +1,32 @@
-var btn = document.getElementById('btn');
-//var content = document.getElementById('content');
-var textarea = document.getElementById('textarea1');
-
+const startBtn = document.querySelector('#start-btn');
+const stopBtn = document.querySelector('#stop-btn');
+const resultDiv = document.querySelector('#result-div');
 
 SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
-const recognition = new SpeechRecognition();
+let recognition = new SpeechRecognition();
 
-recognition.continuous = true; // これこれ
+recognition.lang = 'en';
+recognition.interimResults = true;
+recognition.continuous = true;
+
+let finalTranscript = '';
 
 recognition.onresult = (event) => {
-  console.log(event.results);
+  let interimTranscript = '';
+  for (let i = event.resultIndex; i < event.results.length; i++) {
+    let transcript = event.results[i][0].transcript;
+    if (event.results[i].isFinal) {
+      finalTranscript += transcript;
+    } else {
+      interimTranscript = transcript;
+    }
+  }
+  resultDiv.innerHTML = finalTranscript + '<i style="color:#ddd;">' + interimTranscript + '</i>';
 }
 
-recognition.start();
-
-/*
-//音声認識APIの使用
-SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
-const speech = new SpeechRecognition();
-speech.interimResults = true;
-
-//言語を日本語に設定
-speech.lang = "en";
-
-//ボタンクリックで認識開始
-btn.addEventListener('click', function() {
-  speech.start();
-});
-
-//認識されたテキストを使って処理を分岐
-speech.addEventListener('result', function(e) {
-  console.log(e);
-  var text = e.results[0][0].transcript;
-  textarea.value += text + '\n';
-  console.log(text);
-});
-*/
+startBtn.onclick = () => {
+  recognition.start();
+}
+stopBtn.onclick = () => {
+  recognition.stop();
+}
