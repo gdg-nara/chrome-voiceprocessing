@@ -6,14 +6,31 @@
     <style>
       body {padding: 15px 5px;text-align: center;}
       button {font-size: 20px;width: 150px;height: 50px;margin-bottom: 20px;}
-      #result-div{border: 1px solid black;height: 400px;text-align: left;padding: 20px;}
+      #result-div{border: 1px solid black;height: 100px;text-align: left;padding: 20px;}
+      #text{border: 1px solid black;width: 95%;height: 50px;text-align: left;padding: 20px;}      
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-      <h1>Webspeech API Demo</h1>
+      <h1>SpeechRecognition and Webspeech API</h1>
+      <h2>SpeechRecognition Demo</h2>
       <button id="start-btn">REC Start</button>
       <button id="stop-btn">Stop</button>
       <div id="result-div"></div>
+      <br />
+
+      <h2>Webspeech Demo</h2>
+      <p id="msg"></p>
+      <textarea id="text">Hello World!</textarea>
+      <br/>
+      <select id="voice-names"></select>
+      <br/>
+      <input id="rate" type="range" min="0" max="2" step="0.25" value="1"> (speed)
+      <br/>
+      <button id="speak-btn">speak</button>
+      <button id="pause-btn">pause</button>
+      <button id="resume-btn">resume</button>
+      <button id="cancel-btn">cancel</button>
       <script src="app.js"></script>
   </body>
 </html>
