@@ -2,5 +2,5 @@
 
 # デモ
 
-このリンク [Demo](https://t-cool.github.io/webspeech-api) からお試しください。
+このリンク [https://t-cool.github.io/webspeech](https://t-cool.github.io/webspeech) からお試しください。
 
