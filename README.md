@@ -2,5 +2,5 @@
 
 # デモ
 
-このリンク [https://t-cool.github.io/webspeech](https://t-cool.github.io/webspeech) からお試しください。
+このリンク [https://geg-nara.github.io/webspeech/](https://geg-nara.github.io/webspeech/) からお試しください。
 
