@@ -2,5 +2,5 @@
 
 # デモ
 
-このリンク [https://geg-nara.github.io/webspeech/](https://geg-nara.github.io/webspeech/) からお試しください。
+このリンク [https://geg-nara.github.io/webspeech/](https://geg-nara.github.io/chrome-voiceprocessing/) からお試しください。
 
